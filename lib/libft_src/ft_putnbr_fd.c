@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/07 21:08:27 by albagarc         ###   ########.fr       */
+/*   Created: 2022/06/01 11:24:47 by albagarc          #+#    #+#             */
+/*   Updated: 2022/06/08 12:02:59 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_element
-{
-	int 			*value;
-	int				*index;
-	struct s_list 	*next;
-	struct s_list 	*previous;
-}t_element;
+#include "libft.h"
 
-typedef struct s_stack
+void	ft_putnbr_fd(int n, int fd)
 {
-	t_element *first;
-	int	length;
-}t_stack;
+	int	mivalor;
+
+	mivalor = n;
+	if (mivalor == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (mivalor < 0)
+	{
+		ft_putchar_fd('-', fd);
+		mivalor = -mivalor;
+		ft_putnbr_fd(mivalor, fd);
+	}
+	else if (mivalor >= 10)
+	{
+		ft_putnbr_fd(mivalor / 10, fd);
+		ft_putnbr_fd(mivalor % 10, fd);
+	}
+	else
+		ft_putchar_fd(mivalor + '0', fd);
+}

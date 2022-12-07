@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/07 21:08:27 by albagarc         ###   ########.fr       */
+/*   Created: 2022/05/12 15:46:36 by albagarc          #+#    #+#             */
+/*   Updated: 2022/05/16 16:19:18 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-typedef struct s_element
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int 			*value;
-	int				*index;
-	struct s_list 	*next;
-	struct s_list 	*previous;
-}t_element;
+	size_t	i;
 
-typedef struct s_stack
-{
-	t_element *first;
-	int	length;
-}t_stack;
+	i = 0;
+	while (i < len)
+	{
+		((unsigned char *)b)[i] = c;
+		i++;
+	}
+	return (b);
+}

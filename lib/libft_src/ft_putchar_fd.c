@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/07 21:08:27 by albagarc         ###   ########.fr       */
+/*   Created: 2022/05/31 20:44:32 by albagarc          #+#    #+#             */
+/*   Updated: 2022/06/01 11:00:18 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_element
-{
-	int 			*value;
-	int				*index;
-	struct s_list 	*next;
-	struct s_list 	*previous;
-}t_element;
+#include "libft.h"
 
-typedef struct s_stack
+void	ft_putchar_fd(char c, int fd)
 {
-	t_element *first;
-	int	length;
-}t_stack;
+	write(fd, &c, 1);
+}

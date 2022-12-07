@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/07 21:08:27 by albagarc         ###   ########.fr       */
+/*   Created: 2022/05/12 12:42:51 by albagarc          #+#    #+#             */
+/*   Updated: 2022/08/11 12:52:12 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-typedef struct s_element
+size_t	ft_strlen(const char *s)
 {
-	int 			*value;
-	int				*index;
-	struct s_list 	*next;
-	struct s_list 	*previous;
-}t_element;
+	size_t	i;
 
-typedef struct s_stack
-{
-	t_element *first;
-	int	length;
-}t_stack;
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}

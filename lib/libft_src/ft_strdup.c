@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/07 21:08:27 by albagarc         ###   ########.fr       */
+/*   Created: 2022/05/23 16:44:46 by albagarc          #+#    #+#             */
+/*   Updated: 2022/06/01 11:37:54 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_element
-{
-	int 			*value;
-	int				*index;
-	struct s_list 	*next;
-	struct s_list 	*previous;
-}t_element;
+#include "libft.h"
 
-typedef struct s_stack
+char	*ft_strdup(const char *s1)
 {
-	t_element *first;
-	int	length;
-}t_stack;
+	int		i;
+	char	*ptr;
+
+	i = ft_strlen(s1) + 1;
+	ptr = malloc (sizeof(char) * i);
+	if (ptr != NULL)
+	{
+		ft_memcpy(ptr, s1, i);
+		return (ptr);
+	}
+	return (0);
+}

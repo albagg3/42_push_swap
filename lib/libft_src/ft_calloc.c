@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/07 21:08:27 by albagarc         ###   ########.fr       */
+/*   Created: 2022/05/23 15:38:41 by albagarc          #+#    #+#             */
+/*   Updated: 2022/06/08 13:20:44 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_element
-{
-	int 			*value;
-	int				*index;
-	struct s_list 	*next;
-	struct s_list 	*previous;
-}t_element;
+#include "libft.h"
 
-typedef struct s_stack
+void	*ft_calloc(size_t count, size_t size)
 {
-	t_element *first;
-	int	length;
-}t_stack;
+	char	*ptr;
+
+	ptr = malloc (count * size);
+	if (ptr != NULL)
+	{
+		ft_bzero (ptr, (count * size));
+		return (ptr);
+	}
+	return (0);
+}

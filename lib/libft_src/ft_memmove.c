@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/07 21:08:27 by albagarc         ###   ########.fr       */
+/*   Created: 2022/05/16 17:58:03 by albagarc          #+#    #+#             */
+/*   Updated: 2022/05/18 11:39:29 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_element
-{
-	int 			*value;
-	int				*index;
-	struct s_list 	*next;
-	struct s_list 	*previous;
-}t_element;
+#include "libft.h"
 
-typedef struct s_stack
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	t_element *first;
-	int	length;
-}t_stack;
+	unsigned char	*d;
+	unsigned char	*s;
+
+	d = (unsigned char *) dst;
+	s = (unsigned char *) src;
+	if (d == s || len == 0)
+		return (dst);
+	if (d > s)
+	{	
+		while (len > 0)
+		{
+			d[len - 1] = s[len - 1];
+			len--;
+		}	
+		return (dst);
+	}
+	ft_memcpy(dst, src, len);
+	return (dst);
+}

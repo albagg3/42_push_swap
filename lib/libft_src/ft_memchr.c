@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/07 21:08:27 by albagarc         ###   ########.fr       */
+/*   Created: 2022/05/20 12:29:26 by albagarc          #+#    #+#             */
+/*   Updated: 2022/05/22 09:41:41 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_element
-{
-	int 			*value;
-	int				*index;
-	struct s_list 	*next;
-	struct s_list 	*previous;
-}t_element;
+#include "libft.h"
 
-typedef struct s_stack
-{
-	t_element *first;
-	int	length;
-}t_stack;
+void	*ft_memchr(const void *s, int c, size_t n)
+{	
+	size_t	i;
+	char	*mip;
+
+	mip = (char *)s;
+	i = 0;
+	while (i < n)
+	{
+		if (mip[i] == ((char)c))
+			return (((unsigned char *)s) + i);
+		i++;
+	}
+	return (0);
+}

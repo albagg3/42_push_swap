@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/07 21:08:27 by albagarc         ###   ########.fr       */
+/*   Created: 2022/06/06 15:13:13 by albagarc          #+#    #+#             */
+/*   Updated: 2022/06/07 09:36:41 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_element
-{
-	int 			*value;
-	int				*index;
-	struct s_list 	*next;
-	struct s_list 	*previous;
-}t_element;
+#include "libft.h"
 
-typedef struct s_stack
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_element *first;
-	int	length;
-}t_stack;
+	t_list	*temp;
+	t_list	*new;
+
+	while (*lst != NULL)
+	{
+		temp = *lst;
+		while (temp != NULL)
+		{
+			(del)(temp -> content);
+			new = temp -> next;
+			free (temp);
+			temp = new;
+		}
+		*lst = NULL;
+	}
+}

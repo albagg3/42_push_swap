@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/07 21:08:27 by albagarc         ###   ########.fr       */
+/*   Created: 2022/05/19 14:18:58 by albagarc          #+#    #+#             */
+/*   Updated: 2022/08/11 12:43:14 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_element
-{
-	int 			*value;
-	int				*index;
-	struct s_list 	*next;
-	struct s_list 	*previous;
-}t_element;
+#include "libft.h"
 
-typedef struct s_stack
+char	*ft_strchr(const char*s, int c)
 {
-	t_element *first;
-	int	length;
-}t_stack;
+	int	i;
+
+	i = 0;
+	if ((char) c == '\0')
+		return ((char *) s + ft_strlen(s));
+	while (*s)
+	{
+		if (s[i] == (char) c)
+			return ((char *) s);
+		s++;
+	}
+	return (0);
+}

@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/07 21:08:27 by albagarc         ###   ########.fr       */
+/*   Created: 2022/05/25 09:32:31 by albagarc          #+#    #+#             */
+/*   Updated: 2022/05/27 15:53:36 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_element
-{
-	int 			*value;
-	int				*index;
-	struct s_list 	*next;
-	struct s_list 	*previous;
-}t_element;
+#include "libft.h"
 
-typedef struct s_stack
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	t_element *first;
-	int	length;
-}t_stack;
+	char	*new;
+	int		count;
+	int		s1_len;
+
+	count = 0;
+	s1_len = ft_strlen(s1);
+	while (s1[count] && ft_strchr(set, s1[count]))
+	{
+		count++;
+	}
+	while (*s1 && ft_strchr(set, s1[s1_len - 1]))
+	{
+		s1_len--;
+	}
+	new = ft_substr(s1, count, (s1_len - count));
+	return (new);
+}

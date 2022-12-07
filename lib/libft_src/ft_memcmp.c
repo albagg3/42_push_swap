@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/07 21:08:27 by albagarc         ###   ########.fr       */
+/*   Created: 2022/05/20 18:23:08 by albagarc          #+#    #+#             */
+/*   Updated: 2022/05/20 19:16:13 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_element
-{
-	int 			*value;
-	int				*index;
-	struct s_list 	*next;
-	struct s_list 	*previous;
-}t_element;
+#include "libft.h"
 
-typedef struct s_stack
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	t_element *first;
-	int	length;
-}t_stack;
+	size_t				i;
+	const unsigned char	*s1a;
+	const unsigned char	*s2a;
+
+	s1a = (const unsigned char *) s1;
+	s2a = (const unsigned char *) s2;
+	i = 0;
+	while (i < n)
+	{
+		if (s1a[i] != s2a[i])
+			return (s1a[i] - s2a[i]);
+		i++;
+	}
+	return (0);
+}

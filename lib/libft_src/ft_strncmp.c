@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/07 21:08:27 by albagarc         ###   ########.fr       */
+/*   Created: 2022/05/19 17:48:35 by albagarc          #+#    #+#             */
+/*   Updated: 2022/05/20 12:28:23 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_element
-{
-	int 			*value;
-	int				*index;
-	struct s_list 	*next;
-	struct s_list 	*previous;
-}t_element;
+#include "libft.h"
 
-typedef struct s_stack
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_element *first;
-	int	length;
-}t_stack;
+	size_t	i;
+
+	i = 0;
+	while (i < (n - 1) && (s1[i] == s2[i]) && (s1[i] != '\0' || s2[i] != '\0'))
+	{
+		i++;
+	}
+	if (n == 0)
+		return (0);
+	return (((unsigned char *)s1)[i] -((unsigned char *) s2)[i]);
+}

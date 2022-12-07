@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   read_arguments.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/07 21:08:27 by albagarc         ###   ########.fr       */
+/*   Created: 2022/12/07 18:23:27 by albagarc          #+#    #+#             */
+/*   Updated: 2022/12/07 21:08:25 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_element
+//atoi y si no es un numero valido o no es un numero ya salimos del programa 
+//si es un numero valido creamos un elemento de la lista
+//
+void	read_arguments(char	*num, t_stack *arguments)
 {
-	int 			*value;
-	int				*index;
-	struct s_list 	*next;
-	struct s_list 	*previous;
-}t_element;
-
-typedef struct s_stack
-{
-	t_element *first;
-	int	length;
-}t_stack;
+	if
+	ft_atoi(num);
+}
