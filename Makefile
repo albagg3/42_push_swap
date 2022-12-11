@@ -6,9 +6,9 @@ INC_DIR = inc
 OBJ_DIR = obj/
 SRC_DIR = src/
 
-#FSANITIZE	:= -fsanitize=address -g3
+FSANITIZE	:= -fsanitize=address -g3
 
-SRC_FILES	= main errors 
+SRC_FILES	= main errors read_arguments 
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
@@ -32,7 +32,7 @@ bonus:
 		@$(MAKE) all
 
 -include $(DEPS)
-$(NAME) :	$(LIBFT_DIR)/libft.a $(OBJ)
+$(NAME) :	$(LIBFT_DIR)/libft.a $(OBJ) Makefile
 		make -sC $(LIBFT_DIR)
 		$(CC) $(CFLAGS) $(FSANITIZE) $(OBJ) $(LIBFT_DIR)/libft.a -o $(NAME)
 
