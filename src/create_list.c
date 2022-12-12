@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:41:05 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/12 17:37:28 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/12 18:09:13 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -56,30 +56,21 @@ void	set_index(t_element **first)
 	t_element *compare;
 	int i;
 
-	i = 0;
 	temp = *first;
-	compare = temp->next;
-	
 	while(temp)
 	{
-		
-		compare = temp->next;
+		i = 0;
+		compare = *first;
 		while (compare)
 		{
-			if(temp->value < compare->value)
+			if(temp->value > compare->value)
 			{
-				temp->index = i;
-				compare = compare->next;
+				i++;
 			}
-			else
-			{
-				temp = compare;
-				temp->index = i;
-				compare = temp->next;
-			}
+			compare = compare->next;
 		}
+		temp->index = i;
 		temp = temp -> next;
-		i++;
 	}
 }
 
