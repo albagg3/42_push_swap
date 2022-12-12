@@ -6,15 +6,21 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/11 20:17:37 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/12 15:33:01 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+typedef struct s_element
+{
+	int 				value;
+	int					index;
+	struct s_element 	*next;
+	struct s_element	*previous;
+}t_element;
+
 /*typedef struct s_stack
 {
-	int 			value;
-	int			index;
-	struct s_stack	 	*next;
-	struct s_stack		*previous;
+	t_element *first;
+	int	length;
 }t_stack;*/
 

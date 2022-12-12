@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 18:23:27 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/11 21:09:39 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/12 15:33:04 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,13 @@ int ft_is_int(char *str)
 {
 	if(ft_strlen(str) <= 11)
 	{
-		printf("entra en <=11:%li\n",ft_strlen(str));
 		if(ft_strlen(str) == 11 && ft_strncmp(str, "-2147483648", 11) >  0)
 		{
-			printf("entra en =11:%li\n",ft_strlen(str));
 			terminate(ERR_INT);
 			return(0);
 		}
 		if(ft_strlen(str) == 10 && ft_strncmp(str, "2147483647", 10) > 0)
 		{
-			printf("entra en =10:%li\n",ft_strlen(str));
 			terminate(ERR_INT);
 			return(0);
 		}
@@ -78,11 +75,14 @@ void ft_is_dup(char **argv, int length)
 	i = 1;
 	while (length)
 	{
+
 		j = 1;
 		while((ft_is_number(argv[i]) && ft_is_int(argv[i])) && j < length)
 		{
-			if(ft_atoi(argv[i]) == ft_atoi(argv[j + 1]))
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j + i]))
+			{
 				terminate(ERR_ARGSRP);
+			}
 			else
 				j++;
 		}
