@@ -6,9 +6,11 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:59:12 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/12 15:33:01 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:37:33 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef DEFINES_H
+# define DEFINES_H
 
 typedef struct s_element
 {
@@ -23,4 +25,4 @@ typedef struct s_element
 	t_element *first;
 	int	length;
 }t_stack;*/
-
+#endif

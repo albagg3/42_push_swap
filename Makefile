@@ -8,7 +8,7 @@ SRC_DIR = src/
 
 FSANITIZE	:= -fsanitize=address -g3
 
-SRC_FILES	= main errors read_arguments 
+SRC_FILES	= main errors read_arguments create_list 
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
