@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 20:55:26 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/13 12:20:56 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:08:08 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,3 +20,4 @@ t_element	*lst_last(t_element *lst);
 void		lst_add_back(t_element **first, t_element *new_el);
 void		set_index(t_element **first);
 void		swap_element(t_element **swap);
+void		push_element(t_element **stack_a, t_element **stack_b);

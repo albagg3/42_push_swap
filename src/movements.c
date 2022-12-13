@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 11:30:52 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/13 15:00:29 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/13 18:28:24 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,48 @@ void	swap_element(t_element **stack)
 	first = *stack;
 	second = first->next;
 	third = second->next;
-
+	
 	second->previous = NULL;
 	second->next = first;
 	first->previous = second;
-	first->next = third;
-	third->previous = first;
+	if(third)
+	{
+		first->next = third;
+		third->previous = first;
+	}
+	else
+		first->next = NULL;
 	*stack = second;
 
+}
+
+void	push_element(t_element **stack_1, t_element **stack_2)
+{
+	t_element *first_1;
+	t_element *first_2;
+
+	first_1 = *stack_1;
+	first_2 = *stack_2;
+	if (first_2 == NULL)
+	{
+		first_1->next->previous = NULL;
+		*stack_1 = first_1->next;
+		*stack_2 = first_1;
+		first_1->previous = NULL;
+		first_1->next = NULL;
+	}
+	if (first_2)
+	{
+		if(first_1->next == NULL) 
+			*stack_1 = NULL;
+		else
+		{
+			first_1->next->previous = NULL;
+			*stack_1 = first_1->next;
+		}
+		*stack_1 = first_1->next;
+		first_2->previous = first_1;
+		first_1->next = first_2;
+		*stack_2 = first_1;
+	}
 }
