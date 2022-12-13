@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 11:30:52 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/13 18:28:24 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/13 18:46:09 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	push_element(t_element **stack_1, t_element **stack_2)
 		first_1->next->previous = NULL;
 		*stack_1 = first_1->next;
 		*stack_2 = first_1;
-		first_1->previous = NULL;
 		first_1->next = NULL;
 	}
 	if (first_2)
@@ -62,9 +61,18 @@ void	push_element(t_element **stack_1, t_element **stack_2)
 			first_1->next->previous = NULL;
 			*stack_1 = first_1->next;
 		}
-		*stack_1 = first_1->next;
 		first_2->previous = first_1;
 		first_1->next = first_2;
 		*stack_2 = first_1;
 	}
+}
+
+void	reverse_rotate_element(t_element **stack)
+{
+
+}
+
+void	rotate_element(t_element **stack)
+{
+
 }

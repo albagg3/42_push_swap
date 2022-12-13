@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:03:16 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/13 18:28:22 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/13 18:45:52 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -45,7 +45,7 @@ int	main(int argc, char **argv)
 //	swap_element(&a);
 	push_element(&a, &b);
 	push_element(&a, &b);
-
+	push_element(&a, &b);
 	print_list(&a, &b);
 }
 
