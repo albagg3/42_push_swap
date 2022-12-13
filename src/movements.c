@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 11:30:52 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/13 13:45:59 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/13 15:00:29 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 void	swap_element(t_element **stack)
 {
-	t_element *temp;
 	t_element *first;
 	t_element *second;
 	t_element *third;
@@ -23,14 +22,13 @@ void	swap_element(t_element **stack)
 
 	first = *stack;
 	second = first->next;
-	temp = second;
 	third = second->next;
 
-	temp->previous = NULL;
-	temp->next = first;
-	first->previous = temp;
+	second->previous = NULL;
+	second->next = first;
+	first->previous = second;
 	first->next = third;
 	third->previous = first;
-	*stack = temp;
+	*stack = second;
 
 }
