@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:03:16 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/12 17:37:37 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:46:02 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -39,6 +39,9 @@ int	main(int argc, char **argv)
 	}
 	else
 		terminate(ERR_NOARGS);
+//	swap_element(&a);
+//	print_list(&a);
+	swap_element(&a);
 	print_list(&a);
 }
 

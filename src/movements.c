@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 20:55:26 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/13 12:20:56 by albagarc         ###   ########.fr       */
+/*   Created: 2022/12/13 11:30:52 by albagarc          #+#    #+#             */
+/*   Updated: 2022/12/13 13:45:59 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/defines.h"
+#include <stddef.h>
 
-int			ft_is_number(char *str);
-int			ft_is_int(char *str);
-void		ft_is_dup(char **argv, int length);
-t_element	*lst_new(int content);
-t_element	*lst_last(t_element *lst);
-void		lst_add_back(t_element **first, t_element *new_el);
-void		set_index(t_element **first);
-void		swap_element(t_element **swap);
+void	swap_element(t_element **stack)
+{
+	t_element *temp;
+	t_element *first;
+	t_element *second;
+	t_element *third;
+	
+
+	first = *stack;
+	second = first->next;
+	temp = second;
+	third = second->next;
+
+	temp->previous = NULL;
+	temp->next = first;
+	first->previous = temp;
+	first->next = third;
+	third->previous = first;
+	*stack = temp;
+
+}
