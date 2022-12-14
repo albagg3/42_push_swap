@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:03:16 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/14 15:27:33 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/14 18:43:58 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -16,14 +16,22 @@
 #include <stdio.h>
 void	print_list (t_element **list_a, t_element **list_b);
 
+void	check_number_arguments(t_element **stack, int length)
+{
+	if(length == 1)
+		exit (0);
+	if(length > 1 && length <= 3)
+		sort_3(stack, length);	
+}
+
 int	main(int argc, char **argv)
 {
 	t_element	*a;
-	t_element	*b;
+//	t_element	*b;
 	t_element *temp;
 	int i;
 	
-	b = NULL;
+//	b = NULL;
 	i = 1;
 	//si solo hay un numero que hay que hacer ahora mismo entra en el if
 
@@ -37,6 +45,7 @@ int	main(int argc, char **argv)
 			i++;
 		}
 		set_index(&a);
+		check_number_arguments(&a,argc - 1);
 	}
 	else
 		terminate(ERR_NOARGS);
@@ -48,9 +57,9 @@ int	main(int argc, char **argv)
 //	push_element(&a, &b);
 //	rotate_element(&a);
 //	rotate_element(&a);
-	reverse_rotate_element(&a);
-	reverse_rotate_element(&a);
-	print_list(&a, &b);
+//	reverse_rotate_element(&a);
+//	reverse_rotate_element(&a);
+//	print_list(&a, &b);
 }
 
 
