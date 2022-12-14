@@ -6,7 +6,7 @@ INC_DIR = inc
 OBJ_DIR = obj/
 SRC_DIR = src/
 
-FSANITIZE	:= -fsanitize=address -g3
+#FSANITIZE	:= -fsanitize=address -g3
 
 SRC_FILES	= main errors read_arguments create_list movements 
 

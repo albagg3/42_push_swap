@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 20:55:26 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/13 18:43:55 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/14 14:57:29 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,4 @@ void		set_index(t_element **first);
 void		swap_element(t_element **swap);
 void		push_element(t_element **stack_a, t_element **stack_b);
 void		reverse_rotate_element(t_element **stack);
-void		reverse_element(t_element **stack);
+void		rotate_element(t_element **stack);
