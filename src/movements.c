@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 11:30:52 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/14 15:04:39 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/14 15:26:36 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,19 @@ void	push_element(t_element **stack_1, t_element **stack_2)
 	}
 }
 
-/*void	reverse_rotate_element(t_element **stack)
+void	reverse_rotate_element(t_element **stack)
 {
-
-}*/
+	t_element *last;
+	t_element *first;
+	
+	first = *stack;
+	last = lst_last(first);
+	last->previous->next = NULL;
+	first->previous = last;
+	last->previous = NULL;
+	last->next = first;
+	*stack = last;
+}
 
 void	rotate_element(t_element **stack)
 {
