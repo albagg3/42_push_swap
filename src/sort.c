@@ -78,3 +78,38 @@ void	sort_3(t_element **stack, int length)
 		}
 	}
 }
+
+
+void	sort_5(t_element **stack_1, t_element **stack_2, int length)
+{
+	t_element *temp_1;
+	t_element *temp_2;
+
+	temp_1 = *stack_1;
+	temp_2 = *stack_2;
+	if (temp_1->index > temp_1->next->index)
+		print_do_swap(stack_1, 0, 'a', 0);
+	print_do_push(stack_1, stack_2, 'b', 0);
+	print_do_push(stack_1, stack_2,'a', 0);
+	sort_3(stack_1, length);
+	print_do_push(stack_2, stack_1, 0, 'b');
+	if(temp_1-)
+
+}
+//una funcion que decida si es max index o no
+int	get_max_index(t_element **stack)
+{
+	t_element *temp;
+	int max_index;
+
+	max_index = 0;
+	temp = *stack;
+	while(temp)
+	{
+		if(temp->index > max_index)
+			max_index = temp->index;
+		temp = temp -> next;
+
+	}
+	return(max_index);
+}

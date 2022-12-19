@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 20:55:26 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/14 17:52:17 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/19 15:43:53 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ void		push_element(t_element **stack_a, t_element **stack_b);
 void		reverse_rotate_element(t_element **stack);
 void		rotate_element(t_element **stack);
 void	sort_3(t_element **stack, int length);
+void	sort_5(t_element **stack_1, t_element **stack_2, int length);
 void	print_do_swap(t_element **stack1, t_element **stack2, char a, char b);
 void	print_do_push(t_element **stack1, t_element **stack2, char a, char b);
 void	print_do_rotate(t_element **stack1, t_element **stack2, char a, char b);
 void	print_do_rrotate(t_element **stack1, t_element **stack2, char a, char b);
+
 

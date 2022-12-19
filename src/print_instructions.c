@@ -39,12 +39,12 @@ void print_do_push(t_element **stack_1, t_element **stack_2, char a, char b)
 	if(a && !b && *stack_1)
 	{	
 		push_element(stack_1, stack_2);
-		write(1, "pa\n", 3);
+		write(1, "pb\n", 3);
 	}
 	if(b && !a && *stack_2)
 	{
 		push_element(stack_2,stack_1);
-		write(1, "pb\n", 3);
+		write(1, "pa\n", 3);
 	}
 }
 

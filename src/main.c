@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:03:16 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/14 18:43:58 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/19 15:49:25 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -16,28 +16,30 @@
 #include <stdio.h>
 void	print_list (t_element **list_a, t_element **list_b);
 
-void	check_number_arguments(t_element **stack, int length)
+void	check_number_arguments(t_element **stack_1, t_element **stack_2, int length)
 {
 	if(length == 1)
 		exit (0);
 	if(length > 1 && length <= 3)
-		sort_3(stack, length);	
+		sort_3(stack_1, length);
+	if(length > 3 && length <= 5)
+		sort_5(stack_1, stack_2, length);
 }
 
 int	main(int argc, char **argv)
 {
 	t_element	*a;
-//	t_element	*b;
+	t_element	*b;
 	t_element *temp;
 	int i;
 	
-//	b = NULL;
+	b = NULL;
 	i = 1;
 	//si solo hay un numero que hay que hacer ahora mismo entra en el if
 
 	if (argc >= 2)
 	{
-		ft_is_dup(argv, argc -1); //me checkea que todos los argumentos esten bien.
+		ft_is_dup(argv, argc - 1); //me checkea que todos los argumentos esten bien.
 		while(argv[i])
 		{
 			temp = lst_new(ft_atoi(argv[i]));
@@ -45,7 +47,7 @@ int	main(int argc, char **argv)
 			i++;
 		}
 		set_index(&a);
-		check_number_arguments(&a,argc - 1);
+		check_number_arguments(&a, &b, argc - 1);
 	}
 	else
 		terminate(ERR_NOARGS);
