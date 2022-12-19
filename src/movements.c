@@ -20,7 +20,6 @@ void	swap_element(t_element **stack)
 	t_element *first;
 	t_element *second;
 	t_element *third;
-	
 
 	first = *stack;
 	second = first->next;

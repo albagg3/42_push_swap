@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:58:33 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/18 20:48:11 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/19 12:08:22 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -22,7 +22,6 @@ void    print_list1 (t_element **list_a)
 
 	while (temp_a)
 	{
-		printf("valor en lista_1:%d, valor en index:%d\n", temp_a->value, temp_a->index);
 		temp_a = temp_a->next;
 	}
 }
@@ -36,7 +35,6 @@ int	is_sorted(t_element **stack)
 	i = 0;
 	while (temp)
 	{
-	
 		if (temp->index == i)
 		{
 			i++;
@@ -68,27 +66,15 @@ void	sort_3(t_element **stack, int length)
 	{
 		while(is_sorted(stack))
 		{
-
-			printf("is_sorted=%d\n", is_sorted(stack));
+			temp = *stack;
 			if((temp->index == 0 && temp->next->index == 2) || \
 				(temp->index == 2 && temp->next->index == 1) || \
 					(temp->index == 1 && temp->next->index ==0))
-			{
 				print_do_swap(stack, 0, 'a', 0);
-			
-				print_list1(stack);
-
-			}
 			else if(temp->index == 2 && temp->next->index == 0)
-			{
 				print_do_rotate(stack, 0, 'a', 0);
-				print_list1(stack);
-			}
-			else /*(temp->index == 1 && temp->next->index == 2)*/
-			{
+			else 
 				print_do_rrotate(stack, 0, 'a', 0);
-				print_list1(stack);
-			}
 		}
 	}
 }

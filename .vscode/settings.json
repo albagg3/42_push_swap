@@ -3,7 +3,7 @@
         {
             "cwd": "/Users/albagarc/Desktop/42cursus/push_swap",
             "binaryPath": "/Users/albagarc/Desktop/42cursus/push_swap/push_swap",
-            "binaryArgs": ["1","2", "3", "4", "5"]
+            "binaryArgs": ["2","1", "0"]
         }
     ]
 }
