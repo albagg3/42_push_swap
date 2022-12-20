@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:03:16 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/19 15:49:25 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/20 19:14:10 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -18,12 +18,15 @@ void	print_list (t_element **list_a, t_element **list_b);
 
 void	check_number_arguments(t_element **stack_1, t_element **stack_2, int length)
 {
+	int min_index;
+
+	min_index = min_index_in_stack(stack_1);
 	if(length == 1)
 		exit (0);
 	if(length > 1 && length <= 3)
-		sort_3(stack_1, length);
+		sort_3(stack_1, length, min_index);
 	if(length > 3 && length <= 5)
-		sort_5(stack_1, stack_2, length);
+		sort_5(stack_1, stack_2);
 }
 
 int	main(int argc, char **argv)
@@ -61,7 +64,7 @@ int	main(int argc, char **argv)
 //	rotate_element(&a);
 //	reverse_rotate_element(&a);
 //	reverse_rotate_element(&a);
-//	print_list(&a, &b);
+	print_list(&a, &b);
 }
 
 

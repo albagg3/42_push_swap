@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:58:04 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/14 18:02:28 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/20 18:12:04 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ void print_do_swap(t_element **stack_a, t_element **stack_b, char a, char b)
 
 void print_do_push(t_element **stack_1, t_element **stack_2, char a, char b)
 {
-	if(a && !b && *stack_1)
+	if(b && !a && *stack_1)
 	{	
 		push_element(stack_1, stack_2);
 		write(1, "pb\n", 3);
 	}
-	if(b && !a && *stack_2)
+	if(a && !b && *stack_2)
 	{
 		push_element(stack_2,stack_1);
 		write(1, "pa\n", 3);
