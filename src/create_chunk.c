@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:51:02 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/21 18:33:48 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/21 18:56:13 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -44,11 +44,11 @@ void	create_stack_b(t_element **stack_a,t_element **stack_b, int length)
 			}
 			print_do_push(stack_a, stack_b, 0, 'b');
 			length--;
+			t = *stack_a;
 		}
 		i++;
 		t = t->next;
 	 }
-
 }
 
 
