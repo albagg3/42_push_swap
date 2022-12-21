@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:58:33 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/21 12:31:50 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/21 17:01:50 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -163,7 +163,7 @@ void	sort_5(t_element **stack_1, t_element **stack_2, int length)
 		return ;
 	sort_5_to_b(stack_1, stack_2, length);
 	min_index = min_index_in_stack(stack_1);
-	sort_3(stack_1, length - 2, min_index);
+	sort_3(stack_1, length - 1, min_index);
 	temp_2 = *stack_2;
 	if (temp_2->index == 0)
 	{

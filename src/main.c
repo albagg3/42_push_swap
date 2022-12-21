@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:03:16 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/21 11:29:54 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/21 17:01:47 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -27,6 +27,8 @@ void	check_number_arguments(t_element **stack_1, t_element **stack_2, int length
 		sort_3(stack_1, length, min_index);
 	if(length > 3 && length <= 5)
 		sort_5(stack_1, stack_2, length);
+	if(length > 5 && length <= 100)
+		create_stack_b(stack_1, stack_2, length);
 }
 
 int	main(int argc, char **argv)
@@ -64,7 +66,7 @@ int	main(int argc, char **argv)
 //	rotate_element(&a);
 //	reverse_rotate_element(&a);
 //	reverse_rotate_element(&a);
-	print_list(&a, &b);
+//	print_list(&a, &b);
 }
 
 
