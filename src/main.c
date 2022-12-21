@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:03:16 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/20 19:14:10 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/21 11:29:54 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -26,7 +26,7 @@ void	check_number_arguments(t_element **stack_1, t_element **stack_2, int length
 	if(length > 1 && length <= 3)
 		sort_3(stack_1, length, min_index);
 	if(length > 3 && length <= 5)
-		sort_5(stack_1, stack_2);
+		sort_5(stack_1, stack_2, length);
 }
 
 int	main(int argc, char **argv)

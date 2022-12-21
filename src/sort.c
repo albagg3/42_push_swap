@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:58:33 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/20 19:07:08 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/21 12:08:14 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -96,60 +96,8 @@ void	sort_3(t_element **stack, int length, int min_index)
 	}
 }
 
-/*void	sort_5_stack_b(t_element **stack_1, t_element **stack_2)
-{
-	t_element *a;
-	t_element *b;
 
-	a = *stack_1;
-	b = *stack_2;
-	if((b->next == NULL && b->index == 0) || (b->next->index == 0 && b->index == 1))
-		print_do_push(stack_2, stack_1, 'a');
-	else if((b->next == NULL && b->index == 1) || (b->next != NULL && b->index == 2))
-	{
-		print_do_push(stack_2, stack_1, 'a');
-		print_do_swap(stack_1, 0, 'a', 0);
-	}
-	if (b->next->index == 2 && b->index > 2)
-	{
-		if(b->index == 3)
-		{
-				print_do_rrotate();
-				print_do_push(stack_2, stack_1, 'a');
-		}
-		if(b->index == 4)
-		{
-			print_do_push (stack_2, stack_1, 'a');
-			print_do_rrotate(a, 0, 'a', 0);
-		}
-		print_do_push();
-		print_do_rotate();
-		print_do_rotate();
-		print_do_rotate();
-	}
-	else if(b->next != NULL && b->index == 4 )
-
-}
-
-void	sort_5(t_element **stack_1, t_element **stack_2, int length)
-{
-	t_element *temp_1;
-	t_element *temp_2;
-
-	temp_1 = *stack_1;
-	temp_2 = *stack_2;
-	if (temp_1->index > temp_1->next->index && (temp_1->index != 4 && temp_1->next->index != 3))
-		print_do_swap(stack_1, 0, 'a', 0);
-	print_do_push(stack_1, stack_2, 'b', 0);
-	print_do_push(stack_1, stack_2, 'b', 0);
-	sort_3(stack_1, length);
-	while(stack_2)
-	{
-		sort_5_stack_b(stack_1,stack_2);
-	}
-
-}*/
-//una funcion que decida si es max index o no
+//una funcion que decida si es min index o no
 int	is_min(int index)
 {
 	int min_index;
@@ -183,7 +131,7 @@ int	lst_size(t_element *lst)
 	}
 	return (i);
 }
-void	sort_5_to_b(t_element **stack_1, t_element **stack_2)
+void	sort_5_to_b(t_element **stack_1, t_element **stack_2, int length)
 {
 	t_element *temp_1;
 	t_element *last;
@@ -192,14 +140,14 @@ void	sort_5_to_b(t_element **stack_1, t_element **stack_2)
 	last = lst_last(temp_1);
 	while(lst_size(temp_1) > 3)
 	{
-		if(is_min(temp_1->index) || is_next_min(temp_1->index))
+		if(is_min(temp_1->index) || (is_next_min(temp_1->index) && length != 4))
 			print_do_push(stack_1,stack_2, 0, 'b');
-		else if(is_min(temp_1->next->index) || is_next_min(temp_1->next->index))
+		else if(is_min(temp_1->next->index) || (is_next_min(temp_1->next->index) && length != 4))
 			{
 				print_do_swap(stack_1, 0, 'a', 0);
 				print_do_push(stack_1,stack_2, 0, 'b');
 			}
-		else if(is_min(last->index) || is_next_min(last->index))
+		else if(is_min(last->index) || (is_next_min(last->index) && length != 4))
 		{
 			print_do_rrotate(stack_1, 0, 'a', 0);
 			print_do_push(stack_1,stack_2, 0, 'b');
@@ -208,35 +156,36 @@ void	sort_5_to_b(t_element **stack_1, t_element **stack_2)
 			print_do_rotate(stack_1, 0, 'a', 0);	
 		temp_1 = *stack_1;
 		last = lst_last(temp_1);
-
 	}
 }
 
-void	sort_5(t_element **stack_1, t_element **stack_2)
+void	sort_5(t_element **stack_1, t_element **stack_2, int length)
 {
 	t_element *temp_2;
 	int min_index;
-	
 	
 	temp_2 = *stack_2;
 	if(!is_not_sorted(stack_1))
 		return ;
 	else
 	{
-		sort_5_to_b(stack_1, stack_2);
+		sort_5_to_b(stack_1, stack_2, length);
 		min_index = min_index_in_stack(stack_1);
-		sort_3(stack_1, 3, min_index);
+		sort_3(stack_1, length - 2, min_index);
 		temp_2 = *stack_2;
 		if(temp_2->index == 0)
 		{
-			print_do_swap(0, stack_2, 0, 'b');
-			print_do_push(stack_2,stack_1,'a',0);
-			print_do_push(stack_2,stack_1,'a',0);
+			if(lst_size(temp_2) == 2)
+				{
+					print_do_swap(0, stack_2, 0, 'b');
+					print_do_push(stack_1,stack_2,'a',0);
+				}
+			print_do_push(stack_1,stack_2,'a',0);
 		}
 		if(temp_2->index == 1)
 		{
-			print_do_push(stack_2,stack_1,'a',0);
-			print_do_push(stack_2,stack_1,'a',0);
+			print_do_push(stack_1,stack_2,'a',0);
+			print_do_push(stack_1,stack_2,'a',0);
 		}
 	}
 }
