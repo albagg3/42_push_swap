@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 20:55:26 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/21 11:49:37 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/21 18:31:37 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ void	print_do_push(t_element **stack1, t_element **stack2, char a, char b);
 void	print_do_rotate(t_element **stack1, t_element **stack2, char a, char b);
 void	print_do_rrotate(t_element **stack1, t_element **stack2, char a, char b);
 int	min_index_in_stack(t_element **stack);
-
+void	create_stack_b(t_element **stack_a, t_element **stack_b, int length);
 
